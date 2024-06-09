@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/midi.js/0.3.0/MIDI.min.js"></script>
-<script>
-window.onload = function() {
-    MIDI.loadPlugin({
-        soundfontUrl: "./soundfont/",
-        instrument: "acoustic_grand_piano",
-        onsuccess: function() {
-            MIDI.setVolume(0, 127);
-            MIDI.Player.loadFile('looliemidi.midi', function() {
-                MIDI.Player.start();
-            });
-        }
-    });
-};
-</script>
-
+    <head>
+        <meta charset="UTF-8">
+        <title>Under Construction</title>
+        <style>
+            .construction-banner {
+                position: fixed; /* Fixed positioning to stay on top */
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: #ffcc00; /* Bright yellow background */
+                color: #000000; /* Black text */
+                text-align: center;
+                padding: 10px 0; /* Padding for some vertical space */
+                font-family: 'Arial', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                z-index: 1000; /* High z-index to stay above other content */
+            }
+            body {
+                margin-top: 50px; /* Add top margin to push site content down */
+            }
+        </style>
     <meta charset="UTF-8">
     <title>All American Funk Parade</title>
     <style>
@@ -54,6 +59,10 @@ window.onload = function() {
     </style>
 </head>
 <body>
+    <div class="construction-banner">
+        <img src="https://example.com/construction_icon.png" alt="Construction Icon" style="vertical-align: middle; height: 30px;">
+        This site is under construction. Check back soon!
+    </div>
     <div class="navbar">
         <a href="worldtour.html">WORLD TOUR</a>
         <a href="contact.html">CONTACT US</a>
@@ -65,6 +74,9 @@ window.onload = function() {
     <div class="counter">
         Visitor Count: 1,554,879
     </div>
+    <audio src="looliemidi.mp3" controls autoplay loop>
+        Your browser does not support the audio element.
+    </audio>
 
 </body>
 </html>
