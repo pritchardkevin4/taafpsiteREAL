@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/midi.js/0.3.0/MIDI.min.js"></script>
+
 <head>
     <meta charset="UTF-8">
     <title>All American Funk Parade</title>
@@ -49,8 +51,20 @@
     <div class="counter">
         Visitor Count: 1,554,879
     </div>
-    <audio src="looliemidi.midi" autoplay loop hidden>
-        Your browser does not support the audio element.
-    </audio>
+    <script>
+        window.onload = function() {
+            MIDI.loadPlugin({
+                soundfontUrl: "./soundfont/",
+                instrument: "acoustic_grand_piano",
+                onsuccess: function() {
+                    MIDI.setVolume(0, 127);
+                    MIDI.Player.loadFile('looliemidi.midi', function() {
+                        MIDI.Player.start();
+                    });
+                }
+            });
+        };
+        </script>
+        
 </body>
 </html>
