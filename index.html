@@ -66,16 +66,29 @@
     <div class="navbar">
         <a href="funk_gigs.png">WORLD TOUR</a>
         <a href="contact.html">CONTACT US</a>
-        <a href="https://www.youtube.com/@Vulf">LISTEN TO OUR MUSIC</a>
+        <a href="https://www.youtube.com/watch?v=s6JJ1qoS_0w">LISTEN TO OUR MUSIC</a>
     </div>
     <h1>Welcome to the All American Funk Parade</h1>
     <iframe width="800" height="450" src="https://www.youtube.com/embed/8U4_dx8WZaQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <marquee>Welcome to the grooviest site on the web! Stay funky, my friends!</marquee>
     <p>We're literally the best band of all time. </p>
-    <div class="counter">
-        Visitor Count: 1,554,879
-    </div>
+    <div id="visitorCount">Visitors: 1,500,000</div>
+
+    <script>
+        // Retrieve the current count from localStorage or start at 1,500,000 if it's not yet set
+        let count = parseInt(localStorage.getItem('visitorCount')) || 1504334;
+
+        // Function to increment and display the count
+        function incrementCount() {
+            count++; // Increment the count
+            document.getElementById('visitorCount').innerHTML = 'Visitors: ' + count.toLocaleString(); // Update the display with commas
+            localStorage.setItem('visitorCount', count); // Store the new count in localStorage
+        }
+
+        // Increment the count when the page loads
+        window.onload = incrementCount;
+    </script>
     <audio src="looliemidi.mp3" controls autoplay loop>
         Your browser does not support the audio element.
     </audio>
