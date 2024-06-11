@@ -1,28 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Under Construction</title>
-        <style>
-            .construction-banner {
-                position: fixed; /* Fixed positioning to stay on top */
-                top: 0;
-                left: 0;
-                width: 100%;
-                background-color: #ffcc00; /* Bright yellow background */
-                color: #000000; /* Black text */
-                text-align: center;
-                padding: 10px 0; /* Padding for some vertical space */
-                font-family: 'Arial', sans-serif;
-                font-size: 20px;
-                font-weight: bold;
-                z-index: 1000; /* High z-index to stay above other content */
-            }
-            body {
-                margin-top: 50px; /* Add top margin to push site content down */
-            }
-        </style>
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Ensures proper scaling on mobile devices -->
     <title>All American Funk Parade</title>
     <style>
         body {
@@ -30,6 +10,7 @@
             color: #00FF00;
             font-family: 'Comic Sans MS', 'Comic Sans', cursive;
             background-image: url('https://example.com/stars_background.gif');
+            margin: 0; /* Removes default margin */
         }
         a {
             color: #FF00FF;
@@ -44,17 +25,52 @@
             text-align: center;
         }
         .navbar a {
-            margin: 0 15px;
-            font-size: 20px;
-            font-weight: bold;
+            margin: 0 10px; /* Smaller margin for mobile */
+            font-size: 16px; /* Smaller font size for mobile */
         }
         h1 {
+            font-size: 24px; /* Smaller font size for mobile */
             text-align: center;
             color: #FFA500;
         }
         marquee {
-            font-size: 24px;
+            font-size: 18px; /* Smaller font size for mobile */
             color: #FF0000;
+        }
+        .construction-banner {
+            position: fixed; /* Fixed positioning to stay on top */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffcc00; /* Bright yellow background */
+            color: #000000; /* Black text */
+            text-align: center;
+            padding: 10px 0; /* Padding for some vertical space */
+            font-family: 'Arial', sans-serif;
+            font-size: 16px; /* Smaller font size for mobile */
+            z-index: 1000; /* High z-index to stay above other content */
+        }
+        iframe {
+            width: 100%;  /* Responsive width */
+            height: 300px; /* Fixed height, or use aspect ratio */
+        }
+        @media (min-width: 600px) {  /* Adjustments for larger screens */
+            .navbar a {
+                margin: 0 15px;
+                font-size: 20px;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            marquee {
+                font-size: 24px;
+            }
+            .construction-banner {
+                font-size: 20px;
+            }
+            iframe {
+                height: 450px; /* Larger fixed height for larger screens */
+            }
         }
     </style>
 </head>
@@ -69,29 +85,21 @@
         <a href="https://www.youtube.com/watch?v=fFeEGYLkupE">LISTEN TO OUR MUSIC</a>
     </div>
     <h1>Welcome to the All American Funk Parade</h1>
-    <iframe width="800" height="450" src="https://www.youtube.com/embed/8U4_dx8WZaQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    <iframe src="https://www.youtube.com/embed/8U4_dx8WZaQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <marquee>Welcome to the grooviest site on the web! Stay funky, my friends!</marquee>
     <p>We're literally the best band of all time. </p>
     <div id="visitorCount">Visitors: 1,504,338</div>
-
     <script>
-        // Retrieve the current count from localStorage or start at 1,500,000 if it's not yet set
         let count = parseInt(localStorage.getItem('visitorCount')) || 1504334;
-
-        // Function to increment and display the count
         function incrementCount() {
-            count++; // Increment the count
-            document.getElementById('visitorCount').innerHTML = 'Visitors: ' + count.toLocaleString(); // Update the display with commas
-            localStorage.setItem('visitorCount', count); // Store the new count in localStorage
+            count++;
+            document.getElementById('visitorCount').innerHTML = 'Visitors: ' + count.toLocaleString();
+            localStorage.setItem('visitorCount', count);
         }
-
-        // Increment the count when the page loads
         window.onload = incrementCount;
     </script>
     <audio src="looliemidi.mp3" controls autoplay loop>
         Your browser does not support the audio element.
     </audio>
-
 </body>
 </html>
